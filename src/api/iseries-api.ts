@@ -34,14 +34,14 @@ export interface ISeriesApi<TSeriesType extends SeriesType> {
 	 * @param price - input price to be converted
 	 * @returns pixel coordinate of the price level on the chart
 	 */
-	priceToCoordinate(price: BarPrice): Coordinate | null;
+	priceToCoordinate(price: number): Coordinate | null;
 
 	/**
 	 * Converts specified coordinate to price value according to the series price scale
 	 * @param coordinate - input coordinate to be converted
 	 * @returns price value of the coordinate on the chart
 	 */
-	coordinateToPrice(coordinate: Coordinate): BarPrice | null;
+	coordinateToPrice(coordinate: number): BarPrice | null;
 
 	/**
 	 * Applies new options to the existing series

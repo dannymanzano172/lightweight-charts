@@ -55,7 +55,7 @@ export class SeriesApi<TSeriesType extends SeriesType> implements ISeriesApi<TSe
 		return this._series;
 	}
 
-	public priceToCoordinate(price: BarPrice): Coordinate | null {
+	public priceToCoordinate(price: number): Coordinate | null {
 		const firstValue = this._series.firstValue();
 		if (firstValue === null) {
 			return null;
@@ -64,12 +64,12 @@ export class SeriesApi<TSeriesType extends SeriesType> implements ISeriesApi<TSe
 		return this._series.priceScale().priceToCoordinate(price, firstValue.value);
 	}
 
-	public coordinateToPrice(coordinate: Coordinate): BarPrice | null {
+	public coordinateToPrice(coordinate: number): BarPrice | null {
 		const firstValue = this._series.firstValue();
 		if (firstValue === null) {
 			return null;
 		}
-		return this._series.priceScale().coordinateToPrice(coordinate, firstValue.value);
+		return this._series.priceScale().coordinateToPrice(coordinate as Coordinate, firstValue.value);
 	}
 
 	public setData(data: SeriesDataItemTypeMap[TSeriesType][]): void {
